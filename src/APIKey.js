@@ -1,0 +1,1 @@
+export const MAIN_API = 'http://localhost/Slide%20Web%20Site/php/slideWebServices.php?';
