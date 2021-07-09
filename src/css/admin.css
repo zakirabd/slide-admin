@@ -742,6 +742,7 @@ li {
     font-size: 90%;
     color: var(--white);
     text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 .users-list td:nth-child(1),
 .users-table tr th:nth-child(1){

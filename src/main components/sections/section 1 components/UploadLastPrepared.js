@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPresentations, changeStateMain } from '../../../actions/MainActions';
-
+import {IMG} from '../../../APIKey';
+const env = window._env;
 export class UploadLastPrepared extends Component {
     componentDidMount () {
         this.props.fetchPresentations()
@@ -50,14 +51,14 @@ export class UploadLastPrepared extends Component {
     }
     render() {
         const { presentations } = this.props;
-        const components = presentations.map((presentation, i) =>{
+        const components = presentations&&presentations.length>0 ? presentations.map((presentation, i) =>{
             return (
                 <div className="uploads-component" key={i}>
-                    <img className="uploading-img" src={presentation.image} alt="upload img" />
-                    <span onClick={this.changePresentationImg.bind(this, presentation.id, presentation.subject, presentation.image)} className="uploads-edit"><i className="fas fa-edit edit-icon"></i></span>
+                    <img className="uploading-img" src={IMG+presentation.image} alt="upload img" />
+                    <span onClick={this.changePresentationImg.bind(this, presentation.id, presentation.subject, IMG+presentation.image)} className="uploads-edit"><i className="fas fa-edit edit-icon"></i></span>
                 </div>
             )
-        })
+        }):null;
         return (
             <div className="upload-last_prepared-container">
                 <h3>Son hazırlanan təqdimat əlavə et</h3>

@@ -1,10 +1,12 @@
 import { CHANGE_STATE_MAIN, CHANGE_STATE_MERGE_MAIN, RESET_STATE_MAIN } from './types';
-import * as API from '../APIKey';
+import {MAIN_API} from '../APIKey';
 import axios from 'axios';
+const env = window._env;
+
 
 export const fetchPresentations = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}presentation=select`)
+    .get(`${MAIN_API}presentation=select`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -16,7 +18,7 @@ export const fetchPresentations = () => dispatch => {
 
 export const fetchSlides = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}slide=select`)
+    .get(`${MAIN_API}slide=select`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -27,9 +29,10 @@ export const fetchSlides = () => dispatch => {
 };
 
 export const insertSlide= (edit) => async (dispatch) => {
+
   let resp = {status:"fail"};
   return await  axios
-  .post(`${API.MAIN_API}slayd=insert`, edit).
+  .post(`${MAIN_API}slayd=insert`, edit).
   then(response => {
       resp.status = "success";
       dispatch({
@@ -46,7 +49,7 @@ export const insertSlide= (edit) => async (dispatch) => {
 export const insertPresentation = (edit) => async (dispatch) => {
   let resp = {status:"fail"};
   return await  axios
-  .post(`${API.MAIN_API}presentation=insert`, edit).
+  .post(`${MAIN_API}presentation=insert`, edit).
   then(response => {
       resp.status = "success";
       dispatch({
@@ -63,7 +66,7 @@ export const insertPresentation = (edit) => async (dispatch) => {
 // SOCIAL LINK
 export const fetchLinks = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}links=select`)
+    .get(`${MAIN_API}links=select`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -76,7 +79,7 @@ export const fetchLinks = () => dispatch => {
 export const insertLinks = (socials) => async (dispatch) => {
   let resp = {status:"fail"};
   return await  axios
-  .post(`${API.MAIN_API}links=insert`, socials).
+  .post(`${MAIN_API}links=insert`, socials).
   then(response => {
       resp.status = "success";
       dispatch({
@@ -95,7 +98,7 @@ export const insertLinks = (socials) => async (dispatch) => {
 // ------------------- NEW ORDERS ------------------
 export const fetchNewOrders = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}newOrders=select`)
+    .get(`${MAIN_API}newOrders=select`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -107,7 +110,7 @@ export const fetchNewOrders = () => dispatch => {
 // ------------------- ACCEPT NEW ORDERS ------------------
 export const acceptNewOrders = (id) => dispatch => {
   axios
-    .get(`${API.MAIN_API}newOrder=accept&id=${id}`)
+    .get(`${MAIN_API}newOrder=accept&id=${id}`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -119,7 +122,7 @@ export const acceptNewOrders = (id) => dispatch => {
 // ------------------- REMOVE NEW ORDERS ------------------
 export const removeNewOrders = (id) => dispatch => {
   axios
-    .get(`${API.MAIN_API}newOrder=remove&id=${id}`)
+    .get(`${MAIN_API}newOrder=remove&id=${id}`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -133,7 +136,7 @@ export const removeNewOrders = (id) => dispatch => {
 
 export const fetchWaitingOrders = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}newOrders=wait`)
+    .get(`${MAIN_API}newOrders=wait`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -145,7 +148,7 @@ export const fetchWaitingOrders = () => dispatch => {
 // ------------------ READY WAITING ORDERS BTN ---------------------
 export const readyWaitingOrders = (id) => dispatch => {
   axios
-    .get(`${API.MAIN_API}newOrder=ready&id=${id}`)
+    .get(`${MAIN_API}newOrder=ready&id=${id}`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -159,7 +162,7 @@ export const readyWaitingOrders = (id) => dispatch => {
 
 export const fetchPreparedOrders = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}newOrder=prepared`)
+    .get(`${MAIN_API}newOrder=prepared`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -173,7 +176,7 @@ export const fetchPreparedOrders = () => dispatch => {
 
 export const fetchRemovedOrders = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}newOrders=remove`)
+    .get(`${MAIN_API}newOrders=remove`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -185,7 +188,7 @@ export const fetchRemovedOrders = () => dispatch => {
 
 export const fetchNewOrdersTotal = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}newOrders=total`)
+    .get(`${MAIN_API}newOrders=total`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -197,7 +200,7 @@ export const fetchNewOrdersTotal = () => dispatch => {
 
 export const fetchWaitingOrdersTotal = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}waitingOrders=total`)
+    .get(`${MAIN_API}waitingOrders=total`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -209,7 +212,7 @@ export const fetchWaitingOrdersTotal = () => dispatch => {
 
 export const fetchPreparedOrdersTotal = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}preparedOrders=total`)
+    .get(`${MAIN_API}preparedOrders=total`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -221,7 +224,7 @@ export const fetchPreparedOrdersTotal = () => dispatch => {
 
 export const fetchRemovingOrdersTotal = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}removingOrders=total`)
+    .get(`${MAIN_API}removingOrders=total`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -236,7 +239,7 @@ export const fetchRemovingOrdersTotal = () => dispatch => {
 export const insertNewUser = (users) => async (dispatch) => {
   let resp = {status:"fail"};
   return await  axios
-  .post(`${API.MAIN_API}newUser=insert`, users).
+  .post(`${MAIN_API}newUser=insert`, users).
   then(response => {
       resp.status = "success";
       dispatch({
@@ -252,7 +255,7 @@ export const insertNewUser = (users) => async (dispatch) => {
 
 export const fetchUsers = () => dispatch => {
   axios
-    .get(`${API.MAIN_API}newUser=select`)
+    .get(`${MAIN_API}newUser=select`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -264,7 +267,7 @@ export const fetchUsers = () => dispatch => {
 
 export const deleteUser = (id) => dispatch => {
   axios
-    .get(`${API.MAIN_API}newUser=delete&id=${id}`)
+    .get(`${MAIN_API}newUser=delete&id=${id}`)
     .then(response =>
       dispatch({
         type: CHANGE_STATE_MAIN,
@@ -278,7 +281,7 @@ export const deleteUser = (id) => dispatch => {
 export const loginUser = (login) => async (dispatch) => {
   let resp = {status:"fail"};
   return await  axios
-  .post(`${API.MAIN_API}login=ok`, login).
+  .post(`${MAIN_API}login=ok`, login).
   then(response => {
       dispatch({
         type: RESET_STATE_MAIN,

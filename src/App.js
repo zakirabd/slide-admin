@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import store from './store';
+import './css/admin.css';
+import './css/admin.responsive.css';
 
 import MainPage from './main components/MainPage';
 import LoginPage from './main components/Login Register/LoginPage';

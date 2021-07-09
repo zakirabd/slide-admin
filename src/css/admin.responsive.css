@@ -2,6 +2,8 @@
     .container{
         display: flex;
         flex-direction: column;
+        max-width: 1023px;
+        margin: 0 auto;
     }
     .first-card{
         margin: 0 auto;
@@ -30,6 +32,8 @@
 }
 @media only screen and (max-width: 767px){
     .container{
+        max-width: 767px;
+        margin: 0 auto;
         box-shadow: var(--grey1) 0px 30px 60px -12px inset, rgba(226, 197, 197, 0.3) 0px 18px 36px -18px inset;
     }
     .first-card{
@@ -62,6 +66,10 @@
 }
 
 @media only screen and (max-width: 480px){
+    .container{
+        max-width: 480px;
+        margin: 0 auto;
+    }
 
     .main-section{
         width: 400px;

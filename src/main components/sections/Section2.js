@@ -55,8 +55,8 @@ export class Section2 extends Component {
                                             <td>{result.topic}</td>
                                             <td>{result.pageNumber}</td>
                                             <td>{result.number}</td>
-                                            <td><button className="accept-btn" onClick={this.acceptOrder.bind(this, result.id)}><i class="fas fa-check"></i> Qəbul et</button></td>
-                                            <td><button className="remove-btn" onClick={this.removeOrder.bind(this, result.id)}><i class="fas fa-trash"></i> Sil</button></td>
+                                            <td><button className="accept-btn" onClick={this.acceptOrder.bind(this, result.id)}><i className="fas fa-check"></i> Qəbul et</button></td>
+                                            <td><button className="remove-btn" onClick={this.removeOrder.bind(this, result.id)}><i className="fas fa-trash"></i> Sil</button></td>
                                         </tr>
                                     )
                                 })

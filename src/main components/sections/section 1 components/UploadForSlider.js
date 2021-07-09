@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSlides, changeStateMain } from '../../../actions/MainActions';
+import {IMG} from '../../../APIKey';
+const env = window._env;
 
 export class UploadForSlider extends Component {
     componentDidMount() {
@@ -53,8 +55,8 @@ export class UploadForSlider extends Component {
         const components = slides.map((slide, i) => {
             return (
                 <div className="uploads-component" key={i}>
-                    <img className="uploading-img" src={slide.image} alt="upload img" />
-                    <span className="uploads-edit" onClick={this.changeSliderImage.bind(this, slide.id, slide.image)}><i className="fas fa-edit edit-icon"></i></span>
+                    <img className="uploading-img" src={IMG+slide.image} alt="upload img" />
+                    <span className="uploads-edit" onClick={this.changeSliderImage.bind(this, slide.id, IMG+slide.image)}><i className="fas fa-edit edit-icon"></i></span>
                 </div>
             )
         })
